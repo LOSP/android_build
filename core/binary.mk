@@ -617,6 +617,10 @@ normal_objects := \
 
 all_objects := $(normal_objects) $(gen_o_objects)
 
+ifneq ($(TARGET_SPECIFIC_HEADER_PATH),)
+    LOCAL_C_INCLUDES := $(TOPDIR)$(TARGET_SPECIFIC_HEADER_PATH) $(LOCAL_C_INCLUDES)
+endif
+
 LOCAL_C_INCLUDES += $(TOPDIR)$(LOCAL_PATH) $(intermediates)
 
 ifndef LOCAL_SDK_VERSION
