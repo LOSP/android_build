@@ -37,3 +37,23 @@ endif # BUILD_HOST_static
 LOCAL_MODULE := zipalign
 
 include $(BUILD_HOST_EXECUTABLE)
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+	ZipAlign.cpp \
+	ZipEntry.cpp \
+	ZipFile.cpp
+
+LOCAL_C_INCLUDES += external/zlib
+
+LOCAL_SHARED_LIBRARIES := \
+	libandroidfw \
+	libutils \
+	libcutils \
+	liblog \
+	libz
+
+LOCAL_MODULE := zipalign
+
+include $(BUILD_EXECUTABLE)
